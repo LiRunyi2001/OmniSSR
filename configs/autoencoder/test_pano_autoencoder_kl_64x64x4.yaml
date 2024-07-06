@@ -1,0 +1,106 @@
+#  对 SD 的 autoencoder 在全景图上进行 finetune
+model:
+  base_learning_rate: 4.5e-6  # CFW: 5.0e-5
+  target: ldm.models.autoencoder.AutoencoderKLPanoV1
+  params:
+    ### for training only
+    # ckpt_path: pretrained/v2-1_512-ema-pruned.ckpt  # Stable Diffusion ckpt
+    monitor: "val/rec_loss"
+    embed_dim: 4
+    lossconfig:
+      target: ldm.modules.losses.LPIPSWithDiscriminator
+      params:
+        disc_start: 50001
+        kl_weight: 0.000001
+        disc_weight: 0.5
+
+    ddconfig:
+      double_z: True
+      z_channels: 4
+      resolution: 256  # training: 256, test:(can be) 512
+      in_channels: 3
+      out_ch: 3
+      ch: 128
+      ch_mult: [ 1,2,4,4 ]  # num_down = len(ch_mult)-1
+      num_res_blocks: 2
+      attn_resolutions: [ ]
+      dropout: 0.0
+
+    image_key: 'gt'
+
+
+data:
+  target: main.DataModuleFromConfig
+  params:
+    batch_size: 2
+    num_workers: 6
+    wrap: True
+    train:
+      target: basicsr.data.fused_multi_dataset.FusedMultiDataset
+      params:
+        repeat: 1
+        datasets:
+          dataset_1:
+            name: ODISR_train
+            type: Multi_Scale_SR_Dataset
+            scale: [4.0]
+            ext: sep
+            phase: train
+            repeat: 120
+            dataroot_gt: datasets/MyLTE_load/lau_dataset_resize_clean/odisr/training/HR
+            dataroot_lq: datasets/MyLTE_load/lau_dataset_resize_clean/odisr/training/LR_erp  # 其实没有用到
+            n_colors: 3
+            rgb_range: 1
+            inp_size: [96, 96]  # 对应GT的 384x384
+            data_aug: ['vflip']  # liif  # optional configs:['vflip', 'hflip', 'dflip','rot_aug']
+            mean: 0.5
+            std: 0.5
+            condition_types: ['cos_latitude', 'grid']
+            # sample_q: 4608  # 48 * 96
+            # out_size: [64, 128]
+          dataset_2:
+            name: DF2K-ODI
+            type: Multi_Scale_SR_Dataset
+            scale: [4.0]
+            ext: img # img
+            phase: train
+            dataroot_gt: datasets/MyLTE_load/DF2K-ODI-ERP/HR
+            dataroot_lq: datasets/MyLTE_load/DF2K-ODI-ERP/LR_erp
+            n_colors: 3
+            rgb_range: 1
+            sub_image: true
+            gt_size: [1024, 2048]
+            inp_size: [96, 96]
+            data_aug: ['vflip']  # liif  # optional configs:['vflip', 'hflip', 'dflip','rot_aug']
+            mean: 0.5
+            std: 0.5
+            condition_types: ['cos_latitude', 'grid']
+            # out_size: [64, 128]
+            # first_k: 10
+    validation:
+      target: basicsr.data.single_image_dataset.MultiSingleImageDataset
+      params:
+        gt_path: ['datasets/MyLTE_load/lau_dataset_resize_clean/odisr/validation/HR']
+        phase: 'val'
+        size: [256, 256]  # 只有当 phase: 'train' 时，这个参数才会被用到
+        io_backend:
+          type: disk
+        mean: 0.5
+        std: 0.5
+
+lightning:
+  modelcheckpoint:
+    params:
+      every_n_train_steps: 1500
+  callbacks:
+    image_logger:
+      target: main.ImageLogger
+      params:
+        batch_frequency: 1500
+        max_images: 4
+        increase_log_steps: False
+
+  trainer:
+    benchmark: True
+    max_steps: 800000
+    accumulate_grad_batches: 8
