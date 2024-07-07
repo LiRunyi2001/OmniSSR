@@ -27,10 +27,6 @@ More results can be found on our [Project Page](https://lirunyi2001.github.io/pr
 |:---------------------------------------------:|:----------------------------------------------------:|:-------------------------------------------------:|:-------------------------------------------------:|
 | <img src="__assets__\comparison\odisr-x2\gt_0067_5_00.jpg" width="300"/> |   <img src="__assets__\comparison\odisr-x2\ddrm_0067_out_5_00.jpg" width="300"/>    | <img width="300" src="__assets__\comparison\odisr-x2\stablesr_0067_5_00.jpg"> | <img width="300" src="__assets__\comparison\odisr-x2\ours_0067_5_00.jpg"> |
 
-|               Ground-Truth (X4)               | DDRM | StableSR  |                OmniSSR (ours)                 |
-|:---------------------------------------------:|:----------------------------------------------------:|:-------------------------------------------------:|:-------------------------------------------------:|
-| <img src="__assets__\comparison\sun-x4\gt_0009_pers-13_00.jpg" width="300"/> |   <img src="__assets__\comparison\sun-x4\sun4_0009_ddrm_13_00.jpg" width="300"/>    | <img width="300" src="__assets__\comparison\sun-x4\stablesr_0009_13_00.jpg"> | <img width="300" src="__assets__\comparison\sun-x4\ours_0009_13_00.jpg"> |
-
 
 ## To Do List
 - [x] Release code
