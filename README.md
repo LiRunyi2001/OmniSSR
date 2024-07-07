@@ -125,11 +125,11 @@ python scripts/test_sr_val_ddpm_text_T_oldcanvas_TAN-OmniSSR-TAN.py \
 --vqgan_ckpt {path-to-stablesr}/vqgan_cfw_00011.ckpt \
 --init-img {path-to-stablesr}/lau_dataset_resize_clean/sun_test/LR_erp/X2.00 \
 --outdir results/sun-test-x2/test_OmniSSR \ 
---ddpm_steps 200 \  # defaut setting of StableSR
---dec_w 0.5 \  # defaut setting of StableSR
---colorfix_type adain \  # defaut setting of StableSR
+--ddpm_steps 200  # defaut setting of StableSR \
+--dec_w 0.5  # defaut setting of StableSR \
+--colorfix_type adain  # defaut setting of StableSR \
 --upscale 2.0 \
---input_size 512 \  # defaut setting of StableSR
+--input_size 512  # defaut setting of StableSR \
 --dist_k_fold 1/2
 ```
 
