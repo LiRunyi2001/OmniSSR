@@ -23,7 +23,6 @@ More results can be found on our [Project Page](https://lirunyi2001.github.io/pr
 |:---------------------------------------------:|:----------------------------------------------------:|:-------------------------------------------------:|:-------------------------------------------------:|
 | <img src="__assets__\comparison\gt_0067_5_00.jpg" width="300"/> |   <img src="__assets__\comparison\ddrm_0067_out_5_00.jpg" width="300"/>    | <img width="300" src="__assets__\comparison\stablesr_0067_5_00.jpg"> | <img width="300" src="__assets__\comparison\ours_0067_5_00.jpg"> |
 
-Model: [Realistic Vision V5.1](https://civitai.com/models/4201/realistic-vision-v20)
 
 ## To Do List
 - [x] Release code
@@ -89,7 +88,7 @@ The file tree of the dataset are as follows:
 |   |   |   |-- X2.00
 |   |   |   |-- X4.00
 |   |   |   |   |-- 0000.png
-|   |   |   |   |-- 0000.png
+|   |   |   |   |-- 0001.png
 ```
 
 ### Run Inference
