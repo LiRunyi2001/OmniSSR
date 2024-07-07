@@ -133,7 +133,7 @@ python scripts/test_sr_val_ddpm_text_T_oldcanvas_TAN-OmniSSR-TAN.py \
 --dist_k_fold 1/2
 ```
 
-The output images is in {outdir}/erp_outputs.
+The output images is in {outdir}/erp_output.
 You should run **post_erp_rnd.ipynb** to get the final results.
 
 ## Contact Us
