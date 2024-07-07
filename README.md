@@ -80,7 +80,7 @@ You can refer to **make_clean_lau_dataset.py** for detailed implementation.
 
 Datasets are available at [Baidu Netdisk](https://pan.baidu.com/s/1EruFzvF0G4YQ6gPsDKoCZA?pwd=lv1f) (valid code: **lv1f**)
 
-The file tree of the dataset are as follows:
+The file tree of the dataset is as follows:
 
 ```
 |-- lau_dataset_resize_clean
