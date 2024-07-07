@@ -1,7 +1,7 @@
 <div align="center">
 <h3>[ECCV2024] OmniSSR: Zero-shot Omnidirectional Image Super-Resolution using Stable Diffusion Model</h3>
 
-[Runyi Li](https://github.com/LiRunyi2001/OmniSSR/), [Xuhan Sheng](https://github.com/llstela/), [Weiqi Li](https://github.com/lwq20020127/), [Jian Zhang](https://jianzhang.tech/)
+[Runyi Li](https://lirunyi2001.github.io), [Xuhan Sheng](https://github.com/llstela/), [Weiqi Li](https://github.com/lwq20020127), [Jian Zhang](https://jianzhang.tech/)
 
 School of Electronic and Computer Engineering, Peking University
 
