@@ -51,7 +51,7 @@ pip install torch==1.13.1+cu117 torchvision==0.14.1+cu117 torchaudio==0.13.1 --e
 
 pip install -r requirements.txt
 
-# prepare CLIP and taming-transformers
+# Step 3: prepare CLIP and taming-transformers
 
 mkdir src
 cd src
