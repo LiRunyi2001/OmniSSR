@@ -142,10 +142,10 @@ Codebase built upon [StableSR](https://github.com/IceClear/StableSR/) and [DDNM]
 
 ## BibTeX
 ```
-@article{li2024omnissr,
+@inproceedings{li2024omnissr,
   title={OmniSSR: Zero-shot Omnidirectional Image Super-Resolution using Stable Diffusion Model},
   author={Li, Runyi and Sheng, Xuhan and Li, Weiqi and Zhang, Jian},
-  journal={arXiv preprint arXiv:2404.10312},
+  booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},
   year={2024}
 }
 ```
