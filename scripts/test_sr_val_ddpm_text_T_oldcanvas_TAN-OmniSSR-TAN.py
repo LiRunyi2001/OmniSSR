@@ -290,7 +290,7 @@ def main():
 	pre_upscale = 4  # preupsampling in OTII
 	nrows = 4
 	fov = (75, 75)
-	patch_size = (512, 512)
+	patch_size = (512, 512)  # half of the gt height
 	
 	multi_viewer = MultiViewer()
 
@@ -299,7 +299,7 @@ def main():
 	model.fov = fov
 	# model.patch_size = (int(patch_size[0]/opt.f), int(patch_size[1]/opt.f))
 
-	model.hr_erp_size = int(1024), int(2048)
+	model.hr_erp_size = int(1024), int(2048)  # gt size
 
 	if 'nrows' not in opt.outdir:
 		outpath = opt.outdir + f"_gamma-latent-{gamma_l}_gamma-erp-{gamma_e}_input-size-{opt.input_size}_pre-upscale-{pre_upscale}_nrows-{nrows}_fov-{fov[0]}-{fov[1]}_patchsize-{patch_size[0]}-{patch_size[1]}"
